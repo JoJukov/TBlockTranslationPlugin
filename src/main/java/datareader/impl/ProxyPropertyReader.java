@@ -8,10 +8,12 @@ import java.util.Properties;
 
 public class ProxyPropertyReader implements PropertyReader {
 
+    private static final String propertiesPath = "proxy.properties";
+
     private final Properties properties;
 
     public ProxyPropertyReader() throws IOException {
-        FileReader fileReader = new FileReader("proxy.properties");
+        FileReader fileReader = new FileReader(propertiesPath);
         this.properties = new Properties();
         properties.load(fileReader);
     }
