@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>com.zhuvar.plugin.TBlock translator</id>
+    <name>TBlock Translator</name>
+    <vendor email="ivanzhukov2002@mail.ru" url="https://github.com/JoJukov">Zhukov Ivan</vendor>
+
+    <description><![CDATA[
+    Enter short description for your plugin here.<br>
+    <em>most HTML tags may be used</em>
+    ]]></description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="actions.TranslateAction" class="actions.TranslateAction" text="Translation Action"
+                description="Translates your block of text">
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt CLOSE_BRACKET"/>
+        </action>
+    </actions>
+</idea-plugin>
