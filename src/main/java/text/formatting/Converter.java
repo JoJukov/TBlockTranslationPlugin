@@ -1,4 +1,4 @@
-package conversion;
+package text.formatting;
 
 public interface Converter {
 

@@ -1,4 +1,4 @@
-package translation;
+package text.translation;
 
 public interface Translator {
 

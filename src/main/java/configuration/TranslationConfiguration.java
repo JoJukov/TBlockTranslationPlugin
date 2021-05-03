@@ -4,15 +4,12 @@ import com.intellij.ide.ui.UINumericRange;
 import com.intellij.openapi.options.Configurable;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.ui.ComboBox;
-import com.intellij.openapi.util.NlsContexts;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import javax.swing.JComponent;
-import javax.swing.JTextField;
-import javax.swing.JToggleButton;
+import javax.swing.*;
 
 public class TranslationConfiguration implements Configurable {
     @Override
@@ -23,7 +20,8 @@ public class TranslationConfiguration implements Configurable {
 
     @Override
     public @Nullable
-    @NonNls String getHelpTopic() {
+    @NonNls
+    String getHelpTopic() {
         return Configurable.super.getHelpTopic();
     }
 

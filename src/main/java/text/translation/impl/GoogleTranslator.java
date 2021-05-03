@@ -1,11 +1,11 @@
-package translation.impl;
+package text.translation.impl;
 
 import datareader.impl.ProxyPropertyReader;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import translation.Destination;
-import translation.Translator;
+import text.translation.Destination;
+import text.translation.Translator;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;

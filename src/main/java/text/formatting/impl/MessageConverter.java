@@ -1,7 +1,11 @@
-package conversion.impl;
+package text.formatting.impl;
 
-public class MessageParser {
+import text.formatting.Converter;
 
+// TODO: 5/3/21 think about formatting of source message
+public class MessageConverter implements Converter {
+
+    @Override
     public String convert(String s) {
         return fromCamelCaseToNormalCase(
                 fromKebabCaseToNormalCase(

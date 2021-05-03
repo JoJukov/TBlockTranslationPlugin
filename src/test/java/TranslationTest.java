@@ -1,8 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
-import translation.Destination;
-import translation.impl.GoogleTranslator;
-import translation.Translator;
+import text.translation.Destination;
+import text.translation.impl.GoogleTranslator;
+import text.translation.Translator;
 
 import java.io.IOException;
 
