@@ -14,9 +14,13 @@ public class PopupMessage {
 
     private final JComponent jComponent;
     private final Point point;
+    private final PopupMessageSelector popupMessageSelector;
 
     public PopupMessage(AnActionEvent e) {
         PopupMessageSelector textSelector = new PopupMessageSelector(e);
+        //
+        popupMessageSelector = new PopupMessageSelector(e);
+        //
         jComponent = textSelector.getCurrentComponent();
         point = textSelector.extractPoint();
     }

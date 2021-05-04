@@ -35,23 +35,6 @@ public class PopupMessageSelector {
         return point;
     }
 
-    private VisualPosition toVisualPosition() {
-        int line = 0;
-        int column = 0;
-
-        if (editor != null) {
-            VisualPosition start = selectionModel.getSelectionStartPosition();
-            VisualPosition end = selectionModel.getSelectionEndPosition();
-
-            if (end != null && start != null) {
-                line = end.getLine() + LINE_INTERVAL;
-                column = (start.getColumn() + end.getColumn()) / 2;
-            }
-        }
-
-        return new VisualPosition(line, column);
-    }
-
     public JComponent getCurrentComponent() {
         if (currentComponentEditor != null) {
             return currentComponentEditor.getContentComponent();
@@ -73,5 +56,22 @@ public class PopupMessageSelector {
     private String getAutoSelectedText(SelectionModel selectionModel) {
         selectionModel.selectWordAtCaret(false);
         return selectionModel.getSelectedText();
+    }
+
+    private VisualPosition toVisualPosition() {
+        int line = 0;
+        int column = 0;
+
+        if (editor != null) {
+            VisualPosition start = selectionModel.getSelectionStartPosition();
+            VisualPosition end = selectionModel.getSelectionEndPosition();
+
+            if (end != null && start != null) {
+                line = end.getLine() + LINE_INTERVAL;
+                column = (start.getColumn() + end.getColumn()) / 2;
+            }
+        }
+
+        return new VisualPosition(line, column);
     }
 }

@@ -1,6 +1,6 @@
-package datareader.impl;
+package connection.impl;
 
-import datareader.PropertyReader;
+import connection.PropertyReader;
 
 import java.io.FileReader;
 import java.io.IOException;

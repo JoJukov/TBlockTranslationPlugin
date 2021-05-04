@@ -1,6 +1,6 @@
 package text.translation.impl;
 
-import datareader.impl.ProxyPropertyReader;
+import connection.impl.ProxyPropertyReader;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -18,11 +18,14 @@ import java.net.URL;
 public class GoogleTranslator implements Translator {
 
     private final ProxyPropertyReader proxyPropertyReader;
+    //
     private final MessageConverter messageConverter;
-
+    //
     public GoogleTranslator() throws IOException {
         this.proxyPropertyReader = new ProxyPropertyReader();
+        //
         this.messageConverter = new MessageConverter();
+        //
     }
 
     @Override
