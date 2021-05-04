@@ -1,3 +1,4 @@
+import exception.TranslationException;
 import org.junit.Before;
 import org.junit.Test;
 import text.translation.Destination;
@@ -18,7 +19,7 @@ public class TranslationTest {
     }
 
     @Test
-    public void FirstTest() {
+    public void FirstTest() throws TranslationException {
         assertEquals("Мама", translator.translate("mom", Destination.Ru));
     }
 

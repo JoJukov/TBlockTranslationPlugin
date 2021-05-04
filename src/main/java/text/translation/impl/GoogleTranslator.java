@@ -1,10 +1,10 @@
 package text.translation.impl;
 
 import connection.impl.ProxyPropertyReader;
+import exception.TranslationException;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import text.formatting.impl.MessageConverter;
 import text.translation.Destination;
 import text.translation.Translator;
 
@@ -14,69 +14,53 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GoogleTranslator implements Translator {
 
     private final ProxyPropertyReader proxyPropertyReader;
-    //
-    private final MessageConverter messageConverter;
-    //
+
     public GoogleTranslator() throws IOException {
         this.proxyPropertyReader = new ProxyPropertyReader();
-        //
-        this.messageConverter = new MessageConverter();
-        //
     }
 
     @Override
-    public String translate(String text, Destination dest) {
+    public String translate(String text, Destination dest) throws TranslationException{
 
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("dest", destinationToString(dest));
-        jsonObject.put("text", text);
+        Map<String, String> mapJsonObjects = new HashMap<>();
+        mapJsonObjects.put("dest", destinationToString(dest));
+        mapJsonObjects.put("text", text);
 
-        final URL url;
+        JSONObject jsonObject = new JSONObject(mapJsonObjects);
+
         final HttpURLConnection con;
         try {
-            url = new URL(proxyPropertyReader.getProperty("proxy_address"));
-            // TODO: 5/2/21 in class
-            con = (HttpURLConnection) url.openConnection();
+            String urlPath = proxyPropertyReader.getProperty("proxy_address");
+            con = getConnection(urlPath);
+
             con.setRequestMethod("POST");
             con.setRequestProperty("Content-Type", "application/json");
-
-            // TODO: 5/2/21 balance and put to class
             con.setDoOutput(true);
+
             final DataOutputStream out = new DataOutputStream(con.getOutputStream());
             out.writeBytes(jsonObject.toString());
             out.flush();
             out.close();
 
-            String s = readResponse(con);
+            String response = readResponse(con);
 
-            // TODO: 5/2/21 to class
-            Object obj = null;
-            try {
-                obj = new JSONParser().parse(s);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-
-            // TODO: 5/2/21 balance
+            Object obj = new JSONParser().parse(response);
             return ((JSONObject) obj).get("text").toString();
-
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException | ParseException e) {
+            throw new TranslationException("Error while text translation");
         }
-
-
-        return null;
     }
 
     private String destinationToString(Destination destination) {
         return destination.name().toLowerCase();
     }
 
-    // TODO: 5/2/21 to class
     private String readResponse(HttpURLConnection con) {
         try (final BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
             String inputLine;
@@ -85,9 +69,13 @@ public class GoogleTranslator implements Translator {
                 content.append(inputLine);
             }
             return content.toString();
-        } catch (final Exception ex) {
-            ex.printStackTrace();
+        } catch (IOException e) {
             return "";
         }
+    }
+
+    private HttpURLConnection getConnection(String urlPath) throws IOException {
+        URL url = new URL(urlPath);
+        return (HttpURLConnection) url.openConnection();
     }
 }
