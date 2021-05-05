@@ -1,11 +1,9 @@
 package text.translation.impl;
 
-import connection.impl.ProxyPropertyReader;
-import exception.TranslationException;
+import exceptions.TranslationException;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import text.translation.Destination;
 import text.translation.Translator;
 
 import java.io.BufferedReader;
@@ -19,25 +17,26 @@ import java.util.Map;
 
 public class GoogleTranslator implements Translator {
 
-    private final ProxyPropertyReader proxyPropertyReader;
+    // TODO: 5/5/21 make urlPath final
+    private final String urlPath;
+    private String destLang = "Ru";
 
-    public GoogleTranslator() throws IOException {
-        this.proxyPropertyReader = new ProxyPropertyReader();
+    public GoogleTranslator(String urlPath) throws IOException {
+        this.urlPath = urlPath;
     }
 
     @Override
-    public String translate(String text, Destination dest) throws TranslationException{
+    public String translate(String text) throws TranslationException {
 
         Map<String, String> mapJsonObjects = new HashMap<>();
-        mapJsonObjects.put("dest", destinationToString(dest));
+        mapJsonObjects.put("dest", destLang);
         mapJsonObjects.put("text", text);
 
         JSONObject jsonObject = new JSONObject(mapJsonObjects);
 
         final HttpURLConnection con;
         try {
-            String urlPath = proxyPropertyReader.getProperty("proxy_address");
-            con = getConnection(urlPath);
+            con = getConnection();
 
             con.setRequestMethod("POST");
             con.setRequestProperty("Content-Type", "application/json");
@@ -57,8 +56,12 @@ public class GoogleTranslator implements Translator {
         }
     }
 
-    private String destinationToString(Destination destination) {
-        return destination.name().toLowerCase();
+    public String getUrlPath() {
+        return urlPath;
+    }
+
+    public void setDestLang(String destLang) {
+        this.destLang = destLang;
     }
 
     private String readResponse(HttpURLConnection con) {
@@ -74,7 +77,7 @@ public class GoogleTranslator implements Translator {
         }
     }
 
-    private HttpURLConnection getConnection(String urlPath) throws IOException {
+    private HttpURLConnection getConnection() throws IOException {
         URL url = new URL(urlPath);
         return (HttpURLConnection) url.openConnection();
     }

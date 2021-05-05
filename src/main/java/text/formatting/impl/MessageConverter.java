@@ -3,6 +3,7 @@ package text.formatting.impl;
 import text.formatting.Converter;
 
 // TODO: 5/3/21 think about formatting of source message
+// TODO: 5/5/21 use patter for var formatting
 public class MessageConverter implements Converter {
 
     @Override

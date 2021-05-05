@@ -21,12 +21,13 @@ public class PopupMessage {
         point = textSelector.extractPoint();
     }
 
-    public void createPopupMessage(String text, JBColor color) {
+    public void createPopupMessage(String text, JBColor textColor) {
         JBPopupFactory.getInstance()
                 .createHtmlTextBalloonBuilder(
                         text,
                         null,
-                        color,
+                        textColor,
+                        JBColor.LIGHT_GRAY,
                         null)
                 .createBalloon()
                 .show(new RelativePoint(jComponent, point),
@@ -34,10 +35,10 @@ public class PopupMessage {
     }
 
     public void showTranslatedText(String text) {
-        createPopupMessage(text, JBColor.LIGHT_GRAY);
+        createPopupMessage(text, JBColor.WHITE);
     }
 
-    public void showErrorMessage() {
-        createPopupMessage("Error occurred while text translation", JBColor.RED);
+    public void showErrorMessage(String text) {
+        createPopupMessage(text, JBColor.RED);
     }
 }

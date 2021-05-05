@@ -1,4 +1,4 @@
-import exception.TranslationException;
+import exceptions.TranslationException;
 import org.junit.Before;
 import org.junit.Test;
 import text.translation.Destination;

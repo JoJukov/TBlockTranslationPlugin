@@ -1,4 +1,4 @@
-package exception;
+package exceptions;
 
 public class TranslationException extends Exception{
     public TranslationException(String message) {
