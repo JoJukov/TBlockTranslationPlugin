@@ -1,19 +1,15 @@
 package gui;
 
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public class TBlockConfiguration {
-    private JPanel panel;
     private JCheckBox camelCaseCheckBox;
     private JCheckBox snakeCaseCheckBox;
     private JCheckBox kebabCaseCheckBox;
     private JPanel TBlockForm;
     private JComboBox langComboBox;
     private JLabel CasesLabel;
-
+    private JLabel langLabel;
 
     public boolean isSnakeCase() {
         return snakeCaseCheckBox.isSelected();
