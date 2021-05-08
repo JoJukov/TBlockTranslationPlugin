@@ -8,7 +8,7 @@ import com.intellij.util.xmlb.XmlSerializerUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-@State(name = "configuration.state" ,
+@State(name = "configuration.state",
         storages = {@Storage("TBlockSettingPlugin.xml")})
 public class TBlockSettingsState implements PersistentStateComponent<TBlockSettingsState> {
 
@@ -21,6 +21,7 @@ public class TBlockSettingsState implements PersistentStateComponent<TBlockSetti
     public static TBlockSettingsState getInstance() {
         return ServiceManager.getService(TBlockSettingsState.class);
     }
+
     @Override
     public @Nullable TBlockSettingsState getState() {
         return this;

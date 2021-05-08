@@ -56,7 +56,7 @@ public class GoogleTranslator implements Translator {
         } catch (ParseException e) {
             throw new TranslationException("Error while parsing response in Json");
         } catch (IOException e) {
-            throw new TranslationException("Error while text translation");
+            throw new TranslationException(e.getMessage());
         }
     }
 

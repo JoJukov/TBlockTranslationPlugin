@@ -4,8 +4,6 @@ import groovy.lang.Singleton;
 import text.formatting.impl.MessageConverter;
 import text.translation.impl.GoogleTranslator;
 
-import java.io.IOException;
-
 @Singleton
 public class TranslationProvider {
 

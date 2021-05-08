@@ -1,8 +1,6 @@
-import text.formatting.impl.MessageConverter;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.io.IOException;
+import text.formatting.impl.MessageConverter;
 
 import static org.junit.Assert.assertEquals;
 
@@ -11,7 +9,7 @@ public class CaseConversionTest {
     private MessageConverter messageConverter;
 
     @Before
-    public void setUp() throws IOException {
+    public void setUp() {
         messageConverter = new MessageConverter();
     }
 

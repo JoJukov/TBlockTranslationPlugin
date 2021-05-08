@@ -21,28 +21,28 @@ public class MessageConverter implements Converter {
         return s;
     }
 
-    public void setConvertFromSnakeCaseToNormalCase(boolean convertFromSnakeCaseToNormalCase) {
-        isConvertFromSnakeCaseToNormalCase = convertFromSnakeCaseToNormalCase;
-    }
-
-    public void setConvertFromCamelCaseToNormalCase(boolean convertFromCamelCaseToNormalCase) {
-        isConvertFromCamelCaseToNormalCase = convertFromCamelCaseToNormalCase;
-    }
-
-    public void setConvertFromKebabCaseToNormalCase(boolean convertFromKebabCaseToNormalCase) {
-        isConvertFromKebabCaseToNormalCase = convertFromKebabCaseToNormalCase;
-    }
-
     public boolean isConvertFromSnakeCaseToNormalCase() {
         return isConvertFromSnakeCaseToNormalCase;
+    }
+
+    public void setConvertFromSnakeCaseToNormalCase(boolean convertFromSnakeCaseToNormalCase) {
+        isConvertFromSnakeCaseToNormalCase = convertFromSnakeCaseToNormalCase;
     }
 
     public boolean isConvertFromCamelCaseToNormalCase() {
         return isConvertFromCamelCaseToNormalCase;
     }
 
+    public void setConvertFromCamelCaseToNormalCase(boolean convertFromCamelCaseToNormalCase) {
+        isConvertFromCamelCaseToNormalCase = convertFromCamelCaseToNormalCase;
+    }
+
     public boolean isConvertFromKebabCaseToNormalCase() {
         return isConvertFromKebabCaseToNormalCase;
+    }
+
+    public void setConvertFromKebabCaseToNormalCase(boolean convertFromKebabCaseToNormalCase) {
+        isConvertFromKebabCaseToNormalCase = convertFromKebabCaseToNormalCase;
     }
 
     private String fromSnakeCaseToNormalCase(String s) {

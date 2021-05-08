@@ -2,7 +2,6 @@ package configuration;
 
 import actions.TranslationProvider;
 import com.intellij.openapi.options.Configurable;
-import com.intellij.openapi.options.ConfigurationException;
 import configuration.gui.TBlockConfigurationComponent;
 import configuration.state.TBlockSettingsState;
 import org.jetbrains.annotations.Nls;
@@ -10,35 +9,20 @@ import org.jetbrains.annotations.Nullable;
 import text.formatting.impl.MessageConverter;
 import text.translation.impl.GoogleTranslator;
 
-import javax.swing.JComponent;
+import javax.swing.*;
 import java.util.Objects;
 
 public class TranslationConfiguration implements Configurable {
 
-    //    private final TBlockConfigurationComponent tBlockConfigurationComponent;
-//    private final GoogleTranslator translator;
-//    private final MessageConverter converter;
-//    private boolean isModified;
-//    private JCheckBox snakeCaseCheckBox;
+    private final GoogleTranslator translator;
+    private final MessageConverter converter;
     private TBlockConfigurationComponent component;
-    private GoogleTranslator translator;
-    private MessageConverter converter;
 
     public TranslationConfiguration() {
         TranslationProvider provider = TranslationProvider.getInstance();
         translator = provider.getGoogleTranslator();
         converter = provider.getMessageConverter();
     }
-
-
-    //    public TranslationConfiguration() {
-//        isModified = false;
-//        tBlockConfigurationComponent = TBlockConfigurationComponent.getInstance();
-//        TranslationProvider translationProvider = TranslationProvider.getInstance();
-//        translator = translationProvider.getGoogleTranslator();
-//        converter = translationProvider.getMessageConverter();
-//        initializeChangesInTranslation();
-//    }
 
     @Override
     @Nls(capitalization = Nls.Capitalization.Title)
@@ -63,7 +47,7 @@ public class TranslationConfiguration implements Configurable {
     }
 
     @Override
-    public void apply() throws ConfigurationException {
+    public void apply() {
         TBlockSettingsState state = TBlockSettingsState.getInstance();
         state.isSnakeCase = component.getSnakeCaseCheckBox().isSelected();
         state.isKebabCase = component.getKebabCaseCheckBox().isSelected();
@@ -98,39 +82,4 @@ public class TranslationConfiguration implements Configurable {
     private void updateTranslator(TBlockSettingsState state) {
         translator.setDestLang(state.destLang);
     }
-
-
-//    private void updateConversionKeys() {
-//        boolean isConvertFromCamelCase = tBlockConfigurationComponent.isCamelCase();
-//        boolean isConvertFromKebabCase = tBlockConfigurationComponent.isKebabCase();
-//        boolean isConvertFromSnakeCase = tBlockConfigurationComponent.isSnakeCase();
-//
-//        if (isConvertFromCamelCase != converter.isConvertFromCamelCaseToNormalCase() ||
-//                isConvertFromKebabCase != converter.isConvertFromKebabCaseToNormalCase() ||
-//                isConvertFromSnakeCase != converter.isConvertFromSnakeCaseToNormalCase()) {
-//            isModified = true;
-//        }
-//
-//        converter.setConvertFromCamelCaseToNormalCase(isConvertFromCamelCase);
-//        converter.setConvertFromKebabCaseToNormalCase(isConvertFromKebabCase);
-//        converter.setConvertFromSnakeCaseToNormalCase(isConvertFromSnakeCase);
-//    }
-//
-//    private void updateDestLang() {
-//        String newDestLang = translator.getDestLang();
-//
-//        if (!newDestLang.equalsIgnoreCase(tBlockConfigurationComponent.getDestinationLang())) {
-//            isModified = true;
-//        }
-//
-//        translator.setDestLang(newDestLang);
-//    }
-//
-//    private void initializeChangesInTranslation() {
-//        snakeCaseCheckBox = tBlockConfigurationComponent.getSnakeCaseCheckBox();
-//        snakeCaseCheckBox.addActionListener(actionEvent -> {
-//            snakeCaseCheckBox.setSelected(true);
-//            isModified = true;
-//        });
-//    }
 }

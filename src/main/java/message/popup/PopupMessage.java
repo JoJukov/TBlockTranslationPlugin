@@ -7,8 +7,8 @@ import com.intellij.ui.JBColor;
 import com.intellij.ui.awt.RelativePoint;
 import message.selection.PopupMessageSelector;
 
-import javax.swing.JComponent;
-import java.awt.Point;
+import javax.swing.*;
+import java.awt.*;
 
 public class PopupMessage {
 
