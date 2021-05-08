@@ -11,25 +11,25 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
 public class GoogleTranslator implements Translator {
 
-    // TODO: 5/5/21 make urlPath final
-    private final String urlPath;
-    private String destLang = "Ru";
+    private static final String urlPath = "https://vantus-software.ru/translate";
+    private String destLang;
 
-    public GoogleTranslator(String urlPath) throws IOException {
-        this.urlPath = urlPath;
+    public GoogleTranslator() {
+        destLang = "Ru";
     }
 
     @Override
     public String translate(String text) throws TranslationException {
 
         Map<String, String> mapJsonObjects = new HashMap<>();
-        mapJsonObjects.put("dest", destLang);
+        mapJsonObjects.put("dest", destLang.toLowerCase());
         mapJsonObjects.put("text", text);
 
         JSONObject jsonObject = new JSONObject(mapJsonObjects);
@@ -51,20 +51,20 @@ public class GoogleTranslator implements Translator {
 
             Object obj = new JSONParser().parse(response);
             return ((JSONObject) obj).get("text").toString();
-        } catch (IOException | ParseException e) {
+        } catch (MalformedURLException e) {
+            throw new TranslationException("Error in URL address");
+        } catch (ParseException e) {
+            throw new TranslationException("Error while parsing response in Json");
+        } catch (IOException e) {
             throw new TranslationException("Error while text translation");
         }
-    }
-
-    public String getUrlPath() {
-        return urlPath;
     }
 
     public void setDestLang(String destLang) {
         this.destLang = destLang;
     }
 
-    private String readResponse(HttpURLConnection con) {
+    private String readResponse(HttpURLConnection con) throws IOException {
         try (final BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
             String inputLine;
             final StringBuilder content = new StringBuilder();
@@ -72,8 +72,6 @@ public class GoogleTranslator implements Translator {
                 content.append(inputLine);
             }
             return content.toString();
-        } catch (IOException e) {
-            return "";
         }
     }
 

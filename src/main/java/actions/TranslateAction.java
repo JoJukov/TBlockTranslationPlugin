@@ -5,7 +5,6 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import message.popup.PopupMessage;
 import message.selection.PopupMessageSelector;
 import org.jetbrains.annotations.NotNull;
-import text.translation.Destination;
 
 public class TranslateAction extends AnAction {
 

@@ -13,11 +13,15 @@
     <depends>com.intellij.modules.lang</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
+        <applicationService
+                serviceImplementation="configuration.state.TBlockSettingsState"/>
+        <applicationConfigurable
+                groupId="tools"
+                displayName="TBlock Translator Settings"
+                id="preferences.TranslationConfiguration"
+                instance="configuration.TranslationConfiguration"/>
     </extensions>
-
     <actions>
-        <!-- Add your actions here -->
         <action id="actions.TranslateAction" class="actions.TranslateAction" text="Translation Action"
                 description="Translates your block of text">
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt CLOSE_BRACKET"/>

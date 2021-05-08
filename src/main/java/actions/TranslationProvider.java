@@ -13,12 +13,12 @@ public class TranslationProvider {
     private final GoogleTranslator googleTranslator;
     private final MessageConverter messageConverter;
 
-    private TranslationProvider() throws IOException {
+    private TranslationProvider() {
         this.googleTranslator = new GoogleTranslator();
         this.messageConverter = new MessageConverter();
     }
 
-    public static TranslationProvider getInstance() throws IOException {
+    public static TranslationProvider getInstance() {
         if (instance == null) {
             instance = new TranslationProvider();
         }

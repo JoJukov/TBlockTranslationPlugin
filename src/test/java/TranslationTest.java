@@ -1,7 +1,6 @@
 import exceptions.TranslationException;
 import org.junit.Before;
 import org.junit.Test;
-import text.translation.Destination;
 import text.translation.impl.GoogleTranslator;
 import text.translation.Translator;
 
@@ -20,7 +19,7 @@ public class TranslationTest {
 
     @Test
     public void FirstTest() throws TranslationException {
-        assertEquals("Мама", translator.translate("mom", Destination.Ru));
+        assertEquals("Мама", translator.translate("mom"));
     }
 
 //    @Test

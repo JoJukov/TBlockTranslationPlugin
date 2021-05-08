@@ -2,15 +2,47 @@ package text.formatting.impl;
 
 import text.formatting.Converter;
 
-// TODO: 5/3/21 think about formatting of source message
-// TODO: 5/5/21 use patter for var formatting
 public class MessageConverter implements Converter {
+    private boolean isConvertFromSnakeCaseToNormalCase;
+    private boolean isConvertFromCamelCaseToNormalCase;
+    private boolean isConvertFromKebabCaseToNormalCase;
+
+    public MessageConverter() {
+        isConvertFromSnakeCaseToNormalCase = false;
+        isConvertFromCamelCaseToNormalCase = false;
+        isConvertFromKebabCaseToNormalCase = false;
+    }
 
     @Override
     public String convert(String s) {
-        return fromCamelCaseToNormalCase(
-                fromKebabCaseToNormalCase(
-                        fromSnakeCaseToNormalCase(s)));
+        s = isConvertFromCamelCaseToNormalCase ? fromCamelCaseToNormalCase(s) : s;
+        s = isConvertFromKebabCaseToNormalCase ? fromKebabCaseToNormalCase(s) : s;
+        s = isConvertFromSnakeCaseToNormalCase ? fromSnakeCaseToNormalCase(s) : s;
+        return s;
+    }
+
+    public void setConvertFromSnakeCaseToNormalCase(boolean convertFromSnakeCaseToNormalCase) {
+        isConvertFromSnakeCaseToNormalCase = convertFromSnakeCaseToNormalCase;
+    }
+
+    public void setConvertFromCamelCaseToNormalCase(boolean convertFromCamelCaseToNormalCase) {
+        isConvertFromCamelCaseToNormalCase = convertFromCamelCaseToNormalCase;
+    }
+
+    public void setConvertFromKebabCaseToNormalCase(boolean convertFromKebabCaseToNormalCase) {
+        isConvertFromKebabCaseToNormalCase = convertFromKebabCaseToNormalCase;
+    }
+
+    public boolean isConvertFromSnakeCaseToNormalCase() {
+        return isConvertFromSnakeCaseToNormalCase;
+    }
+
+    public boolean isConvertFromCamelCaseToNormalCase() {
+        return isConvertFromCamelCaseToNormalCase;
+    }
+
+    public boolean isConvertFromKebabCaseToNormalCase() {
+        return isConvertFromKebabCaseToNormalCase;
     }
 
     private String fromSnakeCaseToNormalCase(String s) {

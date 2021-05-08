@@ -27,7 +27,7 @@ public class PopupMessage {
                         text,
                         null,
                         textColor,
-                        JBColor.LIGHT_GRAY,
+                        JBColor.lightGray,
                         null)
                 .createBalloon()
                 .show(new RelativePoint(jComponent, point),
@@ -35,10 +35,10 @@ public class PopupMessage {
     }
 
     public void showTranslatedText(String text) {
-        createPopupMessage(text, JBColor.WHITE);
+        createPopupMessage(text, JBColor.green);
     }
 
     public void showErrorMessage(String text) {
-        createPopupMessage(text, JBColor.RED);
+        createPopupMessage(text, JBColor.red);
     }
 }
