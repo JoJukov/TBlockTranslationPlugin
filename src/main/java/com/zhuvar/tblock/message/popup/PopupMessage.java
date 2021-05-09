@@ -1,11 +1,11 @@
-package message.popup;
+package com.zhuvar.tblock.message.popup;
 
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.ui.popup.Balloon;
 import com.intellij.openapi.ui.popup.JBPopupFactory;
 import com.intellij.ui.JBColor;
 import com.intellij.ui.awt.RelativePoint;
-import message.selection.PopupMessageSelector;
+import com.zhuvar.tblock.message.selection.PopupMessageSelector;
 
 import javax.swing.*;
 import java.awt.*;

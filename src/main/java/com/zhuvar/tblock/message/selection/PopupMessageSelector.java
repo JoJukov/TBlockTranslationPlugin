@@ -1,4 +1,4 @@
-package message.selection;
+package com.zhuvar.tblock.message.selection;
 
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;

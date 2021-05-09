@@ -12,16 +12,16 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <applicationService
-                serviceImplementation="configuration.state.TBlockSettingsState"/>
+                serviceImplementation="com.zhuvar.tblock.configuration.state.TBlockSettingsState"/>
         <applicationConfigurable
                 groupId="tools"
                 displayName="TBlock Translator Settings"
                 id="preferences.TranslationConfiguration"
-                instance="configuration.TranslationConfiguration"/>
+                instance="com.zhuvar.tblock.configuration.TranslationConfiguration"/>
     </extensions>
     <actions>
-        <action id="actions.TranslateAction" class="actions.TranslateAction" text="Translation Action"
-                description="Translates your block of text">
+        <action id="com.zhuvar.tblock.actions.TranslateAction" class="com.zhuvar.tblock.actions.TranslateAction" text="Translation Action"
+                description="Translates your block of com.zhuvar.tblock.text">
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt CLOSE_BRACKET"/>
         </action>
     </actions>

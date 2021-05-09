@@ -1,4 +1,4 @@
-package configuration.gui;
+package com.zhuvar.tblock.configuration.gui;
 
 import javax.swing.*;
 

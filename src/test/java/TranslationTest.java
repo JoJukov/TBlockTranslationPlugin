@@ -1,8 +1,8 @@
-import exceptions.TranslationException;
+import com.zhuvar.tblock.exceptions.TranslationException;
 import org.junit.Before;
 import org.junit.Test;
-import text.translation.Translator;
-import text.translation.impl.GoogleTranslator;
+import com.zhuvar.tblock.text.translation.Translator;
+import com.zhuvar.tblock.text.translation.impl.GoogleTranslator;
 
 import static org.junit.Assert.assertEquals;
 

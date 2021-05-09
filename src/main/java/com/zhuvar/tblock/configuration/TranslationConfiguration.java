@@ -1,15 +1,15 @@
-package configuration;
+package com.zhuvar.tblock.configuration;
 
-import actions.TranslationProvider;
+import com.zhuvar.tblock.actions.TranslationProvider;
 import com.intellij.openapi.options.Configurable;
-import configuration.gui.TBlockConfigurationComponent;
-import configuration.state.TBlockSettingsState;
+import com.zhuvar.tblock.configuration.gui.TBlockConfigurationComponent;
+import com.zhuvar.tblock.configuration.state.TBlockSettingsState;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.Nullable;
-import text.formatting.impl.MessageConverter;
-import text.translation.impl.GoogleTranslator;
+import com.zhuvar.tblock.text.formatting.impl.MessageConverter;
+import com.zhuvar.tblock.text.translation.impl.GoogleTranslator;
 
-import javax.swing.*;
+import javax.swing.JComponent;
 import java.util.Objects;
 
 public class TranslationConfiguration implements Configurable {

@@ -1,4 +1,4 @@
-package text.formatting;
+package com.zhuvar.tblock.text.formatting;
 
 public interface Converter {
 

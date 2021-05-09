@@ -1,8 +1,8 @@
-package actions;
+package com.zhuvar.tblock.actions;
 
 import groovy.lang.Singleton;
-import text.formatting.impl.MessageConverter;
-import text.translation.impl.GoogleTranslator;
+import com.zhuvar.tblock.text.formatting.impl.MessageConverter;
+import com.zhuvar.tblock.text.translation.impl.GoogleTranslator;
 
 @Singleton
 public class TranslationProvider {

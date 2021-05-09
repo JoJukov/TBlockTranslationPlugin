@@ -1,4 +1,4 @@
-package exceptions;
+package com.zhuvar.tblock.exceptions;
 
 public class TranslationException extends Exception {
     public TranslationException(String message) {

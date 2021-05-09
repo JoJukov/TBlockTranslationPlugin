@@ -1,6 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
-import text.formatting.impl.MessageConverter;
+import com.zhuvar.tblock.text.formatting.impl.MessageConverter;
 
 import static org.junit.Assert.assertEquals;
 

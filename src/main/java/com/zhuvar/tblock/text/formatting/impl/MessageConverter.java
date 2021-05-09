@@ -1,6 +1,6 @@
-package text.formatting.impl;
+package com.zhuvar.tblock.text.formatting.impl;
 
-import text.formatting.Converter;
+import com.zhuvar.tblock.text.formatting.Converter;
 
 public class MessageConverter implements Converter {
     private boolean isConvertFromSnakeCaseToNormalCase;

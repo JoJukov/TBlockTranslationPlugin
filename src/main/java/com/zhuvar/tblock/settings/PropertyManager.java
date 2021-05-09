@@ -1,4 +1,4 @@
-package settings;
+package com.zhuvar.tblock.settings;
 
 import java.util.NoSuchElementException;
 

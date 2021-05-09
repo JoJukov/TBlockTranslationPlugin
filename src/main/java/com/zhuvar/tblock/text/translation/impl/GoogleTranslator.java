@@ -1,10 +1,10 @@
-package text.translation.impl;
+package com.zhuvar.tblock.text.translation.impl;
 
-import exceptions.TranslationException;
+import com.zhuvar.tblock.exceptions.TranslationException;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import text.translation.Translator;
+import com.zhuvar.tblock.text.translation.Translator;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;

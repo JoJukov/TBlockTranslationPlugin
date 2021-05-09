@@ -1,4 +1,4 @@
-package configuration.state;
+package com.zhuvar.tblock.configuration.state;
 
 import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.ServiceManager;
@@ -8,7 +8,7 @@ import com.intellij.util.xmlb.XmlSerializerUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-@State(name = "configuration.state",
+@State(name = "com.zhuvar.tblock.configuration.state",
         storages = {@Storage("TBlockSettingPlugin.xml")})
 public class TBlockSettingsState implements PersistentStateComponent<TBlockSettingsState> {
 

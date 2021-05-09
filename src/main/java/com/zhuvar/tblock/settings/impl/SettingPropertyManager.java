@@ -1,6 +1,6 @@
-package settings.impl;
+package com.zhuvar.tblock.settings.impl;
 
-import settings.PropertyManager;
+import com.zhuvar.tblock.settings.PropertyManager;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
