@@ -39,20 +39,20 @@ public class TranslationConfiguration implements Configurable {
     @Override
     public boolean isModified() {
         TBlockSettingsState state = TBlockSettingsState.getInstance();
-        boolean modified = !component.getCamelCaseCheckBox().isSelected() == state.isCamelCase;
-        modified |= !component.getKebabCaseCheckBox().isSelected() == state.isKebabCase;
-        modified |= !component.getSnakeCaseCheckBox().isSelected() == state.isSnakeCase;
-        modified |= !((String) Objects.requireNonNull(component.getLangComboBox().getSelectedItem())).equalsIgnoreCase(state.destLang);
+        boolean modified = !component.getCamelCaseCheckBox().isSelected() == state.isCamelCase();
+        modified |= !component.getKebabCaseCheckBox().isSelected() == state.isKebabCase();
+        modified |= !component.getSnakeCaseCheckBox().isSelected() == state.isSnakeCase();
+        modified |= !((String) Objects.requireNonNull(component.getLangComboBox().getSelectedItem())).equalsIgnoreCase(state.getDestLang());
         return modified;
     }
 
     @Override
     public void apply() {
         TBlockSettingsState state = TBlockSettingsState.getInstance();
-        state.isSnakeCase = component.getSnakeCaseCheckBox().isSelected();
-        state.isKebabCase = component.getKebabCaseCheckBox().isSelected();
-        state.isSnakeCase = component.getSnakeCaseCheckBox().isSelected();
-        state.destLang = (String) component.getLangComboBox().getSelectedItem();
+        state.setCamelCase(component.getCamelCaseCheckBox().isSelected());
+        state.setKebabCase(component.getKebabCaseCheckBox().isSelected());
+        state.setSnakeCase(component.getSnakeCaseCheckBox().isSelected());
+        state.setDestLang((String) component.getLangComboBox().getSelectedItem());
         updateConverter(state);
         updateTranslator(state);
     }
@@ -60,10 +60,10 @@ public class TranslationConfiguration implements Configurable {
     @Override
     public void reset() {
         TBlockSettingsState state = TBlockSettingsState.getInstance();
-        component.getCamelCaseCheckBox().setSelected(state.isCamelCase);
-        component.getKebabCaseCheckBox().setSelected(state.isKebabCase);
-        component.getSnakeCaseCheckBox().setSelected(state.isSnakeCase);
-        component.getLangComboBox().setSelectedItem(state.destLang);
+        component.getCamelCaseCheckBox().setSelected(state.isCamelCase());
+        component.getKebabCaseCheckBox().setSelected(state.isKebabCase());
+        component.getSnakeCaseCheckBox().setSelected(state.isSnakeCase());
+        component.getLangComboBox().setSelectedItem(state.getDestLang());
         updateConverter(state);
         updateTranslator(state);
     }
@@ -74,12 +74,12 @@ public class TranslationConfiguration implements Configurable {
     }
 
     private void updateConverter(TBlockSettingsState state) {
-        converter.setConvertFromSnakeCaseToNormalCase(state.isSnakeCase);
-        converter.setConvertFromCamelCaseToNormalCase(state.isCamelCase);
-        converter.setConvertFromKebabCaseToNormalCase(state.isKebabCase);
+        converter.setConvertFromCamelCaseToNormalCase(state.isCamelCase());
+        converter.setConvertFromKebabCaseToNormalCase(state.isKebabCase());
+        converter.setConvertFromSnakeCaseToNormalCase(state.isSnakeCase());
     }
 
     private void updateTranslator(TBlockSettingsState state) {
-        translator.setDestLang(state.destLang);
+        translator.setDestLang(state.getDestLang());
     }
 }
