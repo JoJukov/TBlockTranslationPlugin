@@ -12,10 +12,10 @@ import org.jetbrains.annotations.Nullable;
         storages = {@Storage("TBlockSettingPlugin.xml")})
 public class TBlockSettingsState implements PersistentStateComponent<TBlockSettingsState> {
 
-    public boolean isCamelCase = true;
-    public boolean isKebabCase = false;
-    public boolean isSnakeCase = false;
-    public String destLang = "Ru";
+    private boolean isCamelCase = true;
+    private boolean isKebabCase = false;
+    private boolean isSnakeCase = false;
+    private String destLang = "Ru";
 
 
     public static TBlockSettingsState getInstance() {
@@ -30,5 +30,37 @@ public class TBlockSettingsState implements PersistentStateComponent<TBlockSetti
     @Override
     public void loadState(@NotNull TBlockSettingsState state) {
         XmlSerializerUtil.copyBean(state, this);
+    }
+
+    public boolean isCamelCase() {
+        return isCamelCase;
+    }
+
+    public void setCamelCase(boolean camelCase) {
+        isCamelCase = camelCase;
+    }
+
+    public boolean isKebabCase() {
+        return isKebabCase;
+    }
+
+    public void setKebabCase(boolean kebabCase) {
+        isKebabCase = kebabCase;
+    }
+
+    public boolean isSnakeCase() {
+        return isSnakeCase;
+    }
+
+    public void setSnakeCase(boolean snakeCase) {
+        isSnakeCase = snakeCase;
+    }
+
+    public String getDestLang() {
+        return destLang;
+    }
+
+    public void setDestLang(String destLang) {
+        this.destLang = destLang;
     }
 }
