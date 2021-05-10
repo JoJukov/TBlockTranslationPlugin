@@ -29,6 +29,6 @@ public class TranslateAction extends AnAction {
 
     @Override
     public boolean isDumbAware() {
-        return true;
+        return false;
     }
 }

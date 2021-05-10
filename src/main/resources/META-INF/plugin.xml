@@ -11,6 +11,8 @@
     <depends>com.intellij.modules.lang</depends>
 
     <extensions defaultExtensionNs="com.intellij">
+        <postStartupActivity
+                implementation="com.zhuvar.tblock.actions.initializing.TranslatorProviderInitializer"/>
         <applicationService
                 serviceImplementation="com.zhuvar.tblock.configuration.state.TBlockSettingsState"/>
         <applicationConfigurable
@@ -20,9 +22,14 @@
                 instance="com.zhuvar.tblock.configuration.TranslationConfiguration"/>
     </extensions>
     <actions>
-        <action id="com.zhuvar.tblock.actions.TranslateAction" class="com.zhuvar.tblock.actions.TranslateAction" text="Translation Action"
+        <action
+                id="com.zhuvar.tblock.actions.TranslateAction"
+                class="com.zhuvar.tblock.actions.TranslateAction"
+                text="Translation Action"
                 description="Translates your block of com.zhuvar.tblock.text">
-            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt CLOSE_BRACKET"/>
+            <keyboard-shortcut
+                    keymap="$default"
+                    first-keystroke="ctrl alt CLOSE_BRACKET"/>
         </action>
     </actions>
 </idea-plugin>

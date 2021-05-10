@@ -1,6 +1,9 @@
 package com.zhuvar.tblock.configuration.gui;
 
-import javax.swing.*;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class TBlockConfigurationComponent {
 
