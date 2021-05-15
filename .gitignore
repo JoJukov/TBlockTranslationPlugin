@@ -34,3 +34,6 @@ gradle/wrapper/**
 *.ipr
 /out/
 
+# Useless files
+deslang.properties
+proxy.properties
