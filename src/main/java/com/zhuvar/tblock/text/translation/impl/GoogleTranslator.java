@@ -1,10 +1,10 @@
 package com.zhuvar.tblock.text.translation.impl;
 
 import com.zhuvar.tblock.exceptions.TranslationException;
+import com.zhuvar.tblock.text.translation.Translator;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import com.zhuvar.tblock.text.translation.Translator;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -44,7 +44,7 @@ public class GoogleTranslator implements Translator {
             con.setDoOutput(true);
 
             final DataOutputStream out = new DataOutputStream(con.getOutputStream());
-            out.writeBytes(jsonObject.toString());
+            out.writeChars(jsonObject.toString());
             out.flush();
             out.close();
 
