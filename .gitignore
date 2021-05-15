@@ -26,8 +26,6 @@ hs_err_pid*
 .gradle
 /build/
 gradle/wrapper/**
-gradlew
-gradlew.bat
 
 # IntelliJ IDEA
 .idea
