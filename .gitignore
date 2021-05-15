@@ -35,5 +35,5 @@ gradle/wrapper/**
 /out/
 
 # Useless files
-deslang.properties
+destlang.properties
 proxy.properties
