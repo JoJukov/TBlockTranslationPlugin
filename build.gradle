@@ -6,7 +6,6 @@ plugins {
 group 'com.zhuvar.plugin'
 version '1.0-SNAPSHOT'
 
-// See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
     version '2021.1'
 }

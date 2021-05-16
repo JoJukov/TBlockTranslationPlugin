@@ -1,12 +1,17 @@
-<idea-plugin>
+<idea-plugin url="https://github.com/JoJukov">
     <id>com.zhuvar.plugin.TBlock translator</id>
     <name>TBlock Translator</name>
     <vendor email="ivanzhukov2002@mail.ru" url="https://github.com/JoJukov">Zhukov Ivan</vendor>
 
     <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
+    <br>Plugin for translating text</br>
+    <br>Automatically detects the language of the selected text and translates it into your chosen one</br>
+    <br>For work, it uses a server that uses the API of <a href="https://github.com/ssut/py-googletrans">this</a> repository for translation</br>
+    <hr>
+    <a href="https://github.com/JoJukov/TBlockTranslationPlugin">Repository</a>
     ]]></description>
+
+    <idea-version since-build="211"/>
 
     <depends>com.intellij.modules.lang</depends>
 
@@ -21,6 +26,7 @@
                 id="preferences.TranslationConfiguration"
                 instance="com.zhuvar.tblock.configuration.TranslationConfiguration"/>
     </extensions>
+
     <actions>
         <action
                 id="com.zhuvar.tblock.actions.TranslateAction"
