@@ -8,10 +8,17 @@
     <br>Automatically detects the language of the selected text and translates it into your chosen one</br>
     <br>For work, it uses a server that uses the API of <a href="https://github.com/ssut/py-googletrans">this</a> repository for translation</br>
     <hr>
-    <a href="https://github.com/JoJukov/TBlockTranslationPlugin">Repository</a>
+    <a href="https://github.com/JoJukov/TBlockTranslationPlugin">GitHub</a>
     ]]></description>
 
     <idea-version since-build="211"/>
+
+    <change-notes><![CDATA[
+      <ul>
+        <li><b>v1.0.2-beta</b> start of plugin</li>
+      </ul>
+    ]]>
+    </change-notes>
 
     <depends>com.intellij.modules.lang</depends>
 

@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'com.zhuvar.plugin'
-version '1.0-SNAPSHOT'
+version '1.0.2-beta'
 
 intellij {
     version '2021.1'
@@ -13,12 +13,6 @@ intellij {
 dependencies {
     testImplementation group: 'junit', name: 'junit', version: '4.12'
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
-}
-
-patchPluginXml {
-    changeNotes """
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>"""
 }
 
 repositories {
