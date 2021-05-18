@@ -17,6 +17,6 @@ public class TranslationTest {
 
     @Test
     public void FirstTest() throws TranslationException {
-        assertEquals("Мама привет как дела", translator.translate("мама"));
+        assertEquals("dad", translator.translate("папа"));
     }
 }
