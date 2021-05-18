@@ -1,7 +1,7 @@
 <idea-plugin url="https://github.com/JoJukov">
     <id>com.zhuvar.plugin.TBlock translator</id>
     <name>TBlock Translator</name>
-    <vendor email="ivanzhukov2002@mail.ru" url="https://github.com/JoJukov">Zhukov Ivan</vendor>
+    <vendor email="ivanzhukov2002@mail.ru" url="https://github.com/JoJukov">Ivan Zhukov</vendor>
 
     <description><![CDATA[
     <br>Plugin for translating text</br>
